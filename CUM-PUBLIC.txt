@@ -1,0 +1,77 @@
+7 TERABYTE – CUM PUBLICI APLICAȚIA PE SITE-UL TĂU
+==================================================
+
+CE AI ÎN ARHIVĂ
+- index.html ............ aplicația propriu-zisă
+- trofee.js ............. lista Sala trofeelor (singurul fișier pe care îl modifici des)
+- trofee/ ............... folderul pentru pozele de la concursuri
+- manifest.json, sw.js .. o fac instalabilă pe telefon și utilizabilă fără internet
+- icon.svg, icon-192.png, icon-512.png ... sigla aplicației
+- reactii-google-apps-script.gs ........... doar pentru pasul opțional de la final
+- CUM-PUBLIC.txt ........ acest ghid (nu trebuie urcat pe site)
+
+
+PASUL 1 – Verifică două lucruri la site-ul tău
+1. Adresa începe cu https:// (apare lacătul în browser). Fără https, aplicația merge,
+   dar nu se poate instala pe telefon.
+2. Ai acces la fișierele site-ului: „File Manager” în panoul de hosting (cPanel sau
+   altul) ori un program FTP (de exemplu FileZilla) cu datele de la firma de hosting.
+   Dacă site-ul e făcut pe o platformă fără acces la fișiere (Google Sites,
+   WordPress.com gratuit), vezi VARIANTA B de mai jos.
+
+
+PASUL 2 – Urcă aplicația
+1. Deschide File Manager și intră în folderul principal al site-ului
+   (de obicei se numește public_html).
+2. Creează un folder nou numit:  7tb
+3. Intră în 7tb și încarcă arhiva 7terabyte.zip.
+4. Click dreapta pe arhivă → Extract (Dezarhivează). Verifică să ai index.html
+   direct în folderul 7tb, nu într-un subfolder.
+5. Poți șterge arhiva .zip și fișierul CUM-PUBLIC.txt de pe server.
+
+
+PASUL 3 – Testează
+Deschide în browser:  https://ADRESA-SITE-ULUI-TĂU/7tb/
+Încearcă pe calculator și pe telefon.
+
+
+PASUL 4 – Arată-le copiilor drumul
+- Pune pe pagina ta un buton sau un link spre adresa de la pasul 3.
+- Fă un cod QR cu adresa și proiectează-l la oră: copiii îl scanează direct.
+
+
+PASUL 5 – Instalarea pe telefon (le arăți copiilor la oră)
+- Android (Chrome): apasă butonul verde „Instalează aplicația pe telefon” din
+  aplicație. Dacă nu apare: meniul ⋮ → „Instalează aplicația” sau
+  „Adaugă pe ecranul de pornire”.
+- iPhone (Safari): butonul Partajare (pătratul cu săgeată în sus) →
+  „Adaugă pe ecranul principal”.
+Aplicația apare cu sigla 7 TB, ca orice altă aplicație.
+
+
+CUM ADAUGI UN TROFEU NOU
+1. Pune poza în folderul 7tb/trofee (nume fără spații și diacritice,
+   de exemplu olimpiada-tic-2027.jpg). Ideal sub 500 KB.
+2. Deschide trofee.js, copiază un bloc { ... } și pune-l primul în listă.
+3. Completează concursul, premiul, prenumele elevilor și clasa, data și numele pozei.
+   Fiecare trofeu are un „id” diferit.
+4. Șterge cele două trofee „EXEMPLU” când îl pui pe primul real.
+5. Urcă trofee.js înapoi în 7tb, peste cel vechi. Copiii văd trofeul imediat.
+
+
+VARIANTA B – dacă nu ai acces la fișierele site-ului
+Aplicația se poate găzdui gratuit separat (de exemplu Netlify sau GitHub Pages,
+cu un cont gratuit), iar pe site-ul tău pui doar un buton spre adresa primită.
+Spune-mi ce platformă folosește site-ul tău și îți dau pașii exacți.
+
+
+PAS OPȚIONAL – inimioare și steluțe comune pentru toți copiii
+Fără acest pas, fiecare copil își vede doar propriile reacții. Cu el, toți văd
+numărul total, păstrat într-un tabel Google al tău.
+1. Creează un Google Sheet nou, de exemplu „Reactii 7TB”.
+2. Meniul Extensii → Apps Script. Șterge ce e scris acolo și lipește tot conținutul
+   fișierului reactii-google-apps-script.gs. Salvează.
+3. Implementare → Implementare nouă → la tip alege „Aplicație web”.
+   Execută ca: Eu. Cine are acces: Oricine. Apasă Implementează și acceptă permisiunile.
+4. Copiază adresa primită (se termină în /exec).
+5. În trofee.js, lipește adresa între ghilimele la reactiiUrl: "..." și urcă fișierul.
