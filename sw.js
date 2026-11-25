@@ -1,5 +1,5 @@
 // 7 TeraByte – lucru fără internet. La fiecare actualizare mare, schimbă numărul versiunii.
-const CACHE = "7tb-v1";
+const CACHE = "7tb-v3";
 const FISIERE = ["./", "./index.html", "./trofee.js", "./manifest.json", "./icon.svg", "./icon-192.png", "./icon-512.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(FISIERE))); self.skipWaiting(); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(k => Promise.all(k.filter(x => x !== CACHE).map(x => caches.delete(x))))); self.clients.claim(); });
